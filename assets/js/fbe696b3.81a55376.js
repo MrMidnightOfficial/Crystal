@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[760],{7636:e=>{e.exports=JSON.parse('[{"type":"link","href":"/api/CrystalServer","label":"\u200bCrystal\u200bServer"},{"type":"link","href":"/api/CrystalClient","label":"\u200bCrystal\u200bClient"}]')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[744],{63891:s=>{s.exports=JSON.parse('{"sourceUrl":"https://github.com/AnimalStudio-Official/Crystal/blob/master","baseUrl":"/CrystalDEV/","classOrder":["CrystalServer","CrystalClient"],"apiCategories":[]}')}}]);
