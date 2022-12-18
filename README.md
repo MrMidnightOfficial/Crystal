@@ -10,8 +10,7 @@ Crystal is a lightweight framework for Roblox that simplifies communication betw
 
 ## Install
 
-Installing Crystal is very simple. Just drop the module into ReplicatedStorage. Crystal can also be used within a Rojo project.
-
+Installing Crystal is very simple. Just drop the module into ReplicatedStorage.
 **Roblox Studio workflow:**
 
 1. Get Crystal from the Release.
