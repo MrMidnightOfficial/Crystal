@@ -15,7 +15,7 @@ The execution model of Crystal defines the flow of operations and lifecycle of C
 	1. All `CrystalStart` methods are invoked at the same time
 1. After all `CrystalStart` methods are called, the promise returned by `Crystal.Start()` resolves
 
-![Lifecycle](/lifecycle.svg)
+``![Lifecycle](/lifecycle.svg)``
 
 On the server, you should have one Script in ServerScriptService. On the client, you should have one LocalScript in PlayerStarterScripts. Each of these scripts should have a similar layout:
 
