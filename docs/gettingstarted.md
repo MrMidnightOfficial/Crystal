@@ -1,21 +1,17 @@
-![Release]https://github.com/AnimalStudio-Official/Knit2/workflows/Release/badge.svg)
-![Lint](https://github.com/AnimalStudio-Official/Knit2/workflows/Lint/badge.svg)
-![Deploy Docs](https://github.com/AnimalStudio-Official/Knit2/workflows/Deploy%20Docs/badge.svg)
+---
+sidebar_position: 2
+---
 
-
-#Crystal
-
-Crystal is a lightweight framework for Roblox that simplifies communication between core parts of your game and seamlessly bridges the gap between the server and the client.
-
+# Getting Started
 
 ## Install
 
-Installing Crystal is very simple. Just drop the module into ReplicatedStorage. Crystal can also be used within a Rojo project.
+Installing Crystal is very simple. Just drop the module into ReplicatedStorage.
 
 **Roblox Studio workflow:**
 
-1. Get Crystal from the Release.
-1. Place Crystal directly within ReplicatedStorage.
+- Get Crystal from the Release.
+- Place Crystal directly within ReplicatedStorage.
 
 ## Basic Usage
 
@@ -64,6 +60,10 @@ end
 Crystal.Start():catch(warn)
 ```
 
+:::note
+It's better practice to put services and controllers within their own ModuleScript and then require them from your main script. For the sake of simplicity, they are all in one script for these examples.
+:::
+
 Now we have a little MoneyService that can get and give money to a player. However, only the server can use this at the moment. What if we want clients to fetch how much money they have? To do this, we have to create some client-side code to consume our service. We _could_ create a controller, but it's not necessary for this example.
 
 First, we need to expose a method to the client. We can do this by writing methods on the service's Client table:
@@ -91,6 +91,22 @@ local MoneyService = Crystal.GetService("MoneyService")
 MoneyService:GetMoney():andThen(function(money)
 	print(money)
 end)
+
+-- Don't want to use promises? When you start Crystal on the client,
+-- set the ServicePromises option to false:
 ```
 
-Under the hood, Crystal is creating a RemoteFunction bound to the service's GetMoney method. Crystal keeps RemoteFunctions and RemoteEvents out of the way so that developers can focus on writing code and not building networking infrastructure.
+:::tip Turn Off Promises
+Don't want to use promises when the client calls a service method? Set the `ServicePromises` option to `false` when you start Crystal on the client:
+```lua
+Crystal.Start({ServicePromises = false}):catch(warn):await()
+
+local MoneyService = Crystal.GetService("MoneyService")
+
+local money = MoneyService:GetMoney()
+```
+:::
+
+Under the hood, Crystal is creating a RemoteFunction bound to the service's GetMoney method. Crystal keeps RemoteFunctions and RemoteEvents out of the way so that developers can focus on writing code and not building communication infrastructure.
+
+Check out the [Services](services.md) documentation for more info on services.

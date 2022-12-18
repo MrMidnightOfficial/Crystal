@@ -1,0 +1,14 @@
+gitRepoUrl = "https://github.com/AnimalStudio-Official/Crystal"
+
+classOrder = [
+    "CrystalServer",
+    "CrystalClient"
+]
+
+[home]
+enabled = true
+includeReadme = false
+
+[docusaurus]
+tagline = "Lightweight game framework for Roblox"
+favicon = "/favicon.png"

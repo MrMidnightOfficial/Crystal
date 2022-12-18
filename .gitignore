@@ -1,0 +1,16 @@
+.vscode/**
+logo/*.blend*
+logo/logo_render*.png
+logo/*.psd
+logo/*.ai
+logo/discord.png
+site/
+*.rbxlx
+*.rbxl
+*.rbxl.lock
+*.rbxmx
+*.rbxm
+Packages/
+src/Packages/
+src/wally.lock
+build/
