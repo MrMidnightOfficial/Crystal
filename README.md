@@ -1,6 +1,6 @@
-![Release]https://github.com/AnimalStudio-Official/Knit2/workflows/Release/badge.svg)
-![Lint](https://github.com/AnimalStudio-Official/Knit2/workflows/Lint/badge.svg)
-![Deploy Docs](https://github.com/AnimalStudio-Official/Knit2/workflows/Deploy%20Docs/badge.svg)
+![Release]https://github.com/AnimalStudio-Official/Crystal/workflows/Release/badge.svg)
+![Lint](https://github.com/AnimalStudio-Official/Crystal/workflows/Lint/badge.svg)
+![Deploy Docs](https://github.com/AnimalStudio-Official/Crystal/workflows/Deploy%20Docs/badge.svg)
 
 
 #Crystal
