@@ -6,6 +6,8 @@ sidebar_position: 1
 
 A lightweight framework derived from Knit by Sleitnick that simplifies communication between core parts of your Roblox experience and seamlessly bridges the gap between the server and the client.
 
+It is called Crystal because it makes your code look Shiny Clean like a Crystal!
+
 See the [Getting Started](gettingstarted.md) guide to start using Crystal.
 
 ## Why Choose Crystal?
@@ -20,7 +22,5 @@ Crystal automatically provides networking between the client and services. Since
 Crystal is built to be extensible. Developers write their own bootstrapping code to start and configure Crystal, which gives developers the freedom to extend how Crystal functions.
 
 ### For Everyone
-From professional game studios to independent developers, Crystal offers a powerful and easy-to-use foundation for Roblox experiences. Crystal is available from both Wally and from the Roblox library, allowing developers to choose between a Rojo-based or Studio-based workflow.
+From professional game studios to independent developers, Crystal offers a powerful and easy-to-use foundation for Roblox experiences. Crystal is available from both Wally (SOON) and from the Roblox library, allowing developers to choose between a Rojo-based or Studio-based workflow.
 
-### Widely Used
-Crystal has been battle-tested in the Roblox ecosystem, and has proven itself to be reliable in both stability and scale. Crystal is also open-source and encourages developers to contribute to the growth of the framework.
