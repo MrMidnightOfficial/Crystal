@@ -22,9 +22,8 @@ jobs:
         env:
           WALLY_AUTH: ${{ secrets.WALLY_AUTH }}
         run: |
-          
-          mkdir -p ~/.wally
-         
+          mkdir =p ~/.wally
+          printf "[tokens]\n\"https://api.wally.run/\" = \"%s\"" "$WALLY_AUTH" >> ~/.wally/auth.toml
           cd src
           rm -rf Packages
           wally publish
