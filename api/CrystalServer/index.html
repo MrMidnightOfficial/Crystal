@@ -31,8 +31,8 @@ Crystal.Start():andThen(function()
 	print(&quot;Crystal started&quot;)
 end):catch(warn)
 ```"><link data-rh="true" rel="icon" href="/Crystal/favicon.png"><link data-rh="true" rel="canonical" href="https://AnimalStudioOfficial.github.io/Crystal/api/CrystalServer"><link data-rh="true" rel="alternate" href="https://AnimalStudioOfficial.github.io/Crystal/api/CrystalServer" hreflang="en"><link data-rh="true" rel="alternate" href="https://AnimalStudioOfficial.github.io/Crystal/api/CrystalServer" hreflang="x-default"><link rel="stylesheet" href="/Crystal/assets/css/styles.396b872c.css">
-<link rel="preload" href="/Crystal/assets/js/runtime~main.c49d8a08.js" as="script">
-<link rel="preload" href="/Crystal/assets/js/main.f1443a70.js" as="script">
+<link rel="preload" href="/Crystal/assets/js/runtime~main.ad0072ca.js" as="script">
+<link rel="preload" href="/Crystal/assets/js/main.e0943d26.js" as="script">
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -109,18 +109,51 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
 	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"MyService initialize"</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AddServices"><code style="text-decoration:none">AddServices</code><a class="hash-link" href="#AddServices" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L206"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">AddServices</code><code>(</code><div class="inset_uKQm"><div><code>parent<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>affix<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#Service">Service</a></code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CreateServicePromise"><code style="text-decoration:none">CreateServicePromise</code><a class="hash-link" href="#CreateServicePromise" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L227"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">CreateServicePromise</code><code>(</code><code>serviceDef<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#ServiceDef">ServiceDef</a></code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#Service">Service</a></code></div><div>
+<p>Constructs a new service. (PROMISE)</p>
+<div class="admonition admonition-caution alert alert--warning">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+        </svg></span>caution</h5>
+  </div>
+  <div class="admonition-content">
+    <p>Services must be created <em>before</em> calling <code>Crystal.Start()</code>.</p>
+  </div>
+</div>
+<pre class="language-lua"><code class="language-lua"><span class="token comment">-- Create a service</span>
+<span class="token keyword">local</span> MyService <span class="token operator">=</span> Crystal<span class="token punctuation">.</span><span class="token function">CreateServicePromise</span> <span class="token punctuation">{</span>
+	Name <span class="token operator">=</span> <span class="token string">"MyService"</span><span class="token punctuation">,</span>
+	Client <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">-- Expose a ToAllCaps remote function to the clients</span>
+<span class="token keyword">function</span> MyService<span class="token punctuation">.</span>Client<span class="token punctuation">:</span><span class="token function">ToAllCaps</span><span class="token punctuation">(</span>player<span class="token punctuation">,</span> msg<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> msg<span class="token punctuation">:</span><span class="token function">upper</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token comment">-- Crystal will call CrystalStart after all services have been initialized</span>
+<span class="token keyword">function</span> MyService<span class="token punctuation">:</span><span class="token function">CrystalStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"MyService started"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token comment">-- Crystal will call CrystalInit when Crystal is first started</span>
+<span class="token keyword">function</span> MyService<span class="token punctuation">:</span><span class="token function">CrystalInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"MyService initialize"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AddServices"><code style="text-decoration:none">AddServices</code><a class="hash-link" href="#AddServices" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L258"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">AddServices</code><code>(</code><div class="inset_uKQm"><div><code>parent<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>affix<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#Service">Service</a></code><code class="purple_ieR2">}</code></div><div>
 <p>
   Requires all the modules that are children of the given parent with an optional affix. This is an easy
   way to quickly load all services that might be in a folder.
 </p>
 <pre class="language-lua"><code class="language-lua">Crystal<span class="token punctuation">.</span><span class="token function">AddServices</span><span class="token punctuation">(</span>somewhere<span class="token punctuation">.</span>Services<span class="token punctuation">)</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AddServicesDeep"><code style="text-decoration:none">AddServicesDeep</code><a class="hash-link" href="#AddServicesDeep" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L220"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">AddServicesDeep</code><code>(</code><div class="inset_uKQm"><div><code>parent<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>affix<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#Service">Service</a></code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AddServicesDeep"><code style="text-decoration:none">AddServicesDeep</code><a class="hash-link" href="#AddServicesDeep" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L272"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">AddServicesDeep</code><code>(</code><div class="inset_uKQm"><div><code>parent<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>affix<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#Service">Service</a></code><code class="purple_ieR2">}</code></div><div>
 <p>Requires all the modules that are descendants of the given parent with an optional affix.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GetService"><code style="text-decoration:none">GetService</code><a class="hash-link" href="#GetService" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L234"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">GetService</code><code>(</code><code>serviceName<!-- -->: </code><code class="blue_P4bS">string</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#Service">Service</a></code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GetService"><code style="text-decoration:none">GetService</code><a class="hash-link" href="#GetService" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L286"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">GetService</code><code>(</code><code>serviceName<!-- -->: </code><code class="blue_P4bS">string</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#Service">Service</a></code></div><div>
 <p>Gets the service by name. Throws an error if the service is not found.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CreateSignal"><code style="text-decoration:none">CreateSignal</code><a class="hash-link" href="#CreateSignal" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L265"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">CreateSignal</code><code>(</code><code>) → </code><code class="blue_P4bS">SIGNAL_MARKER</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CreateSignal"><code style="text-decoration:none">CreateSignal</code><a class="hash-link" href="#CreateSignal" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L317"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">CreateSignal</code><code>(</code><code>) → </code><code class="blue_P4bS">SIGNAL_MARKER</code></div><div>
 <p>
   Returns a marker that will transform the current key into
   a RemoteSignal once the service is created. Should only
@@ -144,7 +177,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
 	self<span class="token punctuation">.</span>Client<span class="token punctuation">.</span>MySignal<span class="token punctuation">:</span><span class="token function">Connect</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>player<span class="token punctuation">,</span> <span class="token punctuation">...</span><span class="token punctuation">)</span> <span class="token keyword">end</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CreateProperty"><code style="text-decoration:none">CreateProperty</code><a class="hash-link" href="#CreateProperty" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L299"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">CreateProperty</code><code>(</code><code>initialValue<!-- -->: </code><code class="blue_P4bS">any</code><code>) → </code><code class="blue_P4bS">PROPERTY_MARKER</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CreateProperty"><code style="text-decoration:none">CreateProperty</code><a class="hash-link" href="#CreateProperty" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L351"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">CreateProperty</code><code>(</code><code>initialValue<!-- -->: </code><code class="blue_P4bS">any</code><code>) → </code><code class="blue_P4bS">PROPERTY_MARKER</code></div><div>
 <p>
   Returns a marker that will transform the current key into
   a RemoteProperty once the service is created. Should only
@@ -173,7 +206,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
 	self<span class="token punctuation">.</span>Client<span class="token punctuation">.</span>MyProperty<span class="token punctuation">:</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"HelloWorldAgain"</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Start"><code style="text-decoration:none">Start</code><a class="hash-link" href="#Start" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L338"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">Start</code><code>(</code><code>options<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#CrystalOptions">CrystalOptions?</a></code><code>) → </code><code class="blue_P4bS">Promise</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Start"><code style="text-decoration:none">Start</code><a class="hash-link" href="#Start" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L390"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">Start</code><code>(</code><code>options<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Crystal/api/CrystalServer#CrystalOptions">CrystalOptions?</a></code><code>) → </code><code class="blue_P4bS">Promise</code></div><div>
 <p>Starts Crystal. Should only be called once.</p>
 <p>
   Optionally, <code>CrystalOptions</code> can be passed in order to set
@@ -210,7 +243,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
 	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Crystal started!"</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">catch</span><span class="token punctuation">(</span>warn<span class="token punctuation">)</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="OnStart"><code style="text-decoration:none">OnStart</code><a class="hash-link" href="#OnStart" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L432"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">OnStart</code><code>(</code><code>) → </code><code class="blue_P4bS">Promise</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="OnStart"><code style="text-decoration:none">OnStart</code><a class="hash-link" href="#OnStart" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/AnimalStudio-Official/Crystal/blob/master/src/CrystalServer.lua#L484"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrystalServer<!-- -->.</code><code class="green_DgR4">OnStart</code><code>(</code><code>) → </code><code class="blue_P4bS">Promise</code></div><div>
 <p>
   Returns a promise that is resolved once Crystal has started. This is useful
   for any code that needs to tie into Crystal services but is not the script
@@ -246,6 +279,28 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             }
         },
         {
+            &quot;name&quot;: &quot;CreateServicePromise&quot;,
+            &quot;desc&quot;: &quot;Constructs a new service. (PROMISE)\n\n:::caution\nServices must be created _before_ calling `Crystal.Start()`.\n:::\n```lua\n-- Create a service\nlocal MyService = Crystal.CreateServicePromise {\n\tName = \&quot;MyService\&quot;,\n\tClient = {},\n}\n\n-- Expose a ToAllCaps remote function to the clients\nfunction MyService.Client:ToAllCaps(player, msg)\n\treturn msg:upper()\nend\n\n-- Crystal will call CrystalStart after all services have been initialized\nfunction MyService:CrystalStart()\n\tprint(\&quot;MyService started\&quot;)\nend\n\n-- Crystal will call CrystalInit when Crystal is first started\nfunction MyService:CrystalInit()\n\tprint(\&quot;MyService initialize\&quot;)\nend\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;serviceDef&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;ServiceDef&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Service\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 227,
+                &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
+            }
+        },
+        {
             &quot;name&quot;: &quot;AddServices&quot;,
             &quot;desc&quot;: &quot;Requires all the modules that are children of the given parent with an optional affix. This is an easy\nway to quickly load all services that might be in a folder.\n```lua\nCrystal.AddServices(somewhere.Services)\n```&quot;,
             &quot;params&quot;: [
@@ -268,7 +323,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 206,
+                &quot;line&quot;: 258,
                 &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
             }
         },
@@ -295,7 +350,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 220,
+                &quot;line&quot;: 272,
                 &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
             }
         },
@@ -317,7 +372,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 234,
+                &quot;line&quot;: 286,
                 &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
             }
         },
@@ -333,7 +388,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 265,
+                &quot;line&quot;: 317,
                 &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
             }
         },
@@ -355,7 +410,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 299,
+                &quot;line&quot;: 351,
                 &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
             }
         },
@@ -377,7 +432,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 338,
+                &quot;line&quot;: 390,
                 &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
             }
         },
@@ -393,7 +448,7 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 432,
+                &quot;line&quot;: 484,
                 &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
             }
         }
@@ -554,8 +609,8 @@ Crystal<span class="token punctuation">.</span><span class="token function">Star
         &quot;line&quot;: 109,
         &quot;path&quot;: &quot;src/CrystalServer.lua&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#CrystalOptions" class="table-of-contents__link toc-highlight">CrystalOptions</a></li><li><a href="#Middleware" class="table-of-contents__link toc-highlight">Middleware</a></li><li><a href="#ServerMiddleware" class="table-of-contents__link toc-highlight">ServerMiddleware</a></li><li><a href="#ServerMiddlewareFn" class="table-of-contents__link toc-highlight">ServerMiddlewareFn</a></li><li><a href="#Service" class="table-of-contents__link toc-highlight">Service</a></li><li><a href="#ServiceClient" class="table-of-contents__link toc-highlight">ServiceClient</a></li><li><a href="#ServiceDef" class="table-of-contents__link toc-highlight">ServiceDef</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#Util" class="table-of-contents__link toc-highlight">Util</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#AddServices" class="table-of-contents__link toc-highlight">.AddServices</a></li><li><a href="#AddServicesDeep" class="table-of-contents__link toc-highlight">.AddServicesDeep</a></li><li><a href="#CreateProperty" class="table-of-contents__link toc-highlight">.CreateProperty</a></li><li><a href="#CreateService" class="table-of-contents__link toc-highlight">.CreateService</a></li><li><a href="#CreateSignal" class="table-of-contents__link toc-highlight">.CreateSignal</a></li><li><a href="#GetService" class="table-of-contents__link toc-highlight">.GetService</a></li><li><a href="#OnStart" class="table-of-contents__link toc-highlight">.OnStart</a></li><li><a href="#Start" class="table-of-contents__link toc-highlight">.Start</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2022 AnimalStudioOfficial. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
-<script src="/Crystal/assets/js/runtime~main.c49d8a08.js"></script>
-<script src="/Crystal/assets/js/main.f1443a70.js"></script>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#CrystalOptions" class="table-of-contents__link toc-highlight">CrystalOptions</a></li><li><a href="#Middleware" class="table-of-contents__link toc-highlight">Middleware</a></li><li><a href="#ServerMiddleware" class="table-of-contents__link toc-highlight">ServerMiddleware</a></li><li><a href="#ServerMiddlewareFn" class="table-of-contents__link toc-highlight">ServerMiddlewareFn</a></li><li><a href="#Service" class="table-of-contents__link toc-highlight">Service</a></li><li><a href="#ServiceClient" class="table-of-contents__link toc-highlight">ServiceClient</a></li><li><a href="#ServiceDef" class="table-of-contents__link toc-highlight">ServiceDef</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#Util" class="table-of-contents__link toc-highlight">Util</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#AddServices" class="table-of-contents__link toc-highlight">.AddServices</a></li><li><a href="#AddServicesDeep" class="table-of-contents__link toc-highlight">.AddServicesDeep</a></li><li><a href="#CreateProperty" class="table-of-contents__link toc-highlight">.CreateProperty</a></li><li><a href="#CreateService" class="table-of-contents__link toc-highlight">.CreateService</a></li><li><a href="#CreateServicePromise" class="table-of-contents__link toc-highlight">.CreateServicePromise</a></li><li><a href="#CreateSignal" class="table-of-contents__link toc-highlight">.CreateSignal</a></li><li><a href="#GetService" class="table-of-contents__link toc-highlight">.GetService</a></li><li><a href="#OnStart" class="table-of-contents__link toc-highlight">.OnStart</a></li><li><a href="#Start" class="table-of-contents__link toc-highlight">.Start</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2022 AnimalStudioOfficial. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/Crystal/assets/js/runtime~main.ad0072ca.js"></script>
+<script src="/Crystal/assets/js/main.e0943d26.js"></script>
 </body>
 </html>
