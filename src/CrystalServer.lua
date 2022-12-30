@@ -195,6 +195,58 @@ function CrystalServer.CreateService(serviceDef: ServiceDef): Service
 	return service
 end
 
+--[=[
+	Constructs a new service. (PROMISE)
+
+	:::caution
+	Services must be created _before_ calling `Crystal.Start()`.
+	:::
+	```lua
+	-- Create a service
+	local MyService = Crystal.CreateServicePromise {
+		Name = "MyService",
+		Client = {},
+	}
+
+	-- Expose a ToAllCaps remote function to the clients
+	function MyService.Client:ToAllCaps(player, msg)
+		return msg:upper()
+	end
+
+	-- Crystal will call CrystalStart after all services have been initialized
+	function MyService:CrystalStart()
+		print("MyService started")
+	end
+
+	-- Crystal will call CrystalInit when Crystal is first started
+	function MyService:CrystalInit()
+		print("MyService initialize")
+	end
+	```
+]=]
+function CrystalServer.CreateServicePromise(serviceDef: ServiceDef): Service
+ return Promise.new(function(resolve)
+	assert(type(serviceDef) == "table", "Service must be a table; got " .. type(serviceDef))
+	assert(type(serviceDef.Name) == "string", "Service.Name must be a string; got " .. type(serviceDef.Name))
+	assert(#serviceDef.Name > 0, "Service.Name must be a non-empty string")
+	assert(not DoesServiceExist(serviceDef.Name), "Service \"" .. serviceDef.Name .. "\" already exists")
+	local service = serviceDef
+	service.CrystalComm = ServerComm.new(CrystalRepServiceFolder, serviceDef.Name)
+	if type(service.Client) ~= "table" then
+		service.Client = {Server = service}
+	else
+		if service.Client.Server ~= service then
+			service.Client.Server = service
+		end
+	end
+	services[service.Name] = service
+	resolve(service)
+    end)
+end
+
+
+
+
 
 --[=[
 	Requires all the modules that are children of the given parent with an optional affix. This is an easy

@@ -188,6 +188,40 @@ function CrystalClient.CreateController(controllerDef: ControllerDef): Controlle
 	return controller
 end
 
+--[=[
+	Creates a new controller. (PROMISE)
+
+	:::caution
+	Controllers must be created _before_ calling `Crystal.Start()`.
+	:::
+	```lua
+	-- Create a controller
+	local MyController = Crystal.CreateControllerPromise {
+		Name = "MyController",
+	}
+
+	function MyController:CrystalStart()
+		print("MyController started")
+	end
+
+	function MyController:CrystalInit()
+		print("MyController initialized")
+	end
+	```
+]=]
+function CrystalClient.CreateControllerPromise(controllerDef: ControllerDef): Controller
+ return Promise.new(function(resolve)
+		assert(type(controllerDef) == "table", "Controller must be a table; got " .. type(controllerDef))
+		assert(type(controllerDef.Name) == "string", "Controller.Name must be a string; got " .. type(controllerDef.Name))
+		assert(#controllerDef.Name > 0, "Controller.Name must be a non-empty string")
+		assert(not DoesControllerExist(controllerDef.Name), "Controller \"" .. controllerDef.Name .. "\" already exists")
+		local controller = controllerDef :: Controller
+		controllers[controller.Name] = controller
+		resolve(controller)
+	end)
+end
+
+
 
 --[=[
 	Requires all the modules that are children of the given parent with an optional affix. This is an easy
