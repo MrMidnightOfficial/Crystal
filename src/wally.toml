@@ -1,6 +1,6 @@
 [package]
 name = "animalstudioofficial/crystal"
-description = "lightweight game framework"
+description = "lightweight game framework derived from Knit by Sleitnick."
 version = "0.8.0"
 license = "MIT"
 registry = "https://github.com/UpliftGames/wally-index"
