@@ -24,7 +24,7 @@ jobs:
         run: |
           
           mkdir -p ~/.wally
-          echo "$WALLY_AUTH" > ~/.wally/auth.toml
+         
           cd src
           rm -rf Packages
           wally publish
