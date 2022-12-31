@@ -22,5 +22,5 @@ Crystal automatically provides networking between the client and services. Since
 Crystal is built to be extensible. Developers write their own bootstrapping code to start and configure Crystal, which gives developers the freedom to extend how Crystal functions.
 
 ### For Everyone
-From professional game studios to independent developers, Crystal offers a powerful and easy-to-use foundation for Roblox experiences. Crystal is available from both Wally (Crystal is comeing out on Wally SOON) and from the Roblox library, allowing developers to choose between a Rojo-based or Studio-based workflow.
+From professional game studios to independent developers, Crystal offers a powerful and easy-to-use foundation for Roblox experiences. Crystal is available from both Wally and from the Roblox library, allowing developers to choose between a Rojo-based or Studio-based workflow.
 
