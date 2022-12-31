@@ -147,6 +147,9 @@ local function DoesServiceExist(serviceName: string): boolean
 	return service ~= nil
 end
 
+function CrystalServer.GetAllServices()
+	return services
+end
 
 --[=[
 	Constructs a new service.
