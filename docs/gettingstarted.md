@@ -13,6 +13,16 @@ Installing Crystal is very simple. Just drop the module into ReplicatedStorage.
 - Get Crystal from the Release.
 - Place Crystal directly within ReplicatedStorage.
 
+**Rojo/Wally workflow:**
+
+- Add Crystal to your `wally.toml` dependency list (e.g. `crystal = "animalstudioofficial/crystal@^0.8.0""`)
+- Require Crystal like any other module grabbed from Wally
+
+	:::note Wally
+	Not familiar with Wally? Wally is a package manager (like NPM) for the Roblox ecosystem.
+	To get started, check out the [Wally repository](https://github.com/UpliftGames/wally).
+
+
 ## Basic Usage
 
 The core usage of Crystal is the same from the server and the client. The general pattern is to create a single script on the server and a single script on the client. These scripts will load Crystal, create services/controllers, and then start Crystal.

@@ -1,4 +1,4 @@
-gitRepoUrl = "https://github.com/AnimalStudio-Official/Crystal"
+gitRepoUrl = "https://github.com/AnimalStudioOfficial/Crystal"
 
 classOrder = [
     "CrystalServer",
@@ -10,5 +10,5 @@ enabled = true
 includeReadme = false
 
 [docusaurus]
-tagline = "Lightweight game framework for Roblox"
+tagline = "lightweight game framework For Roblox derived from Knit by Sleitnick."
 favicon = "/favicon.png"

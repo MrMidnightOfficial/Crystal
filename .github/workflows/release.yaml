@@ -38,7 +38,7 @@ jobs:
       - name: Build place file
         run: |
           rojo build publish.project.json -o Crystal.rbxl
-      - name: Publish Knit to Roblox
+      - name: Publish Crystal to Roblox
         shell: bash
         run: |
           remodel run publish.lua

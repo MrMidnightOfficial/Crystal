@@ -1,5 +1,5 @@
 {
-	"name": "knit-test",
+	"name": "crystal-test",
 	"tree": {
 		"$className": "DataModel",
 		"ReplicatedStorage": {
